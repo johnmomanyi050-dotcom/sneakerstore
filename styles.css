@@ -1,0 +1,188 @@
+/* ---------------------------
+   Theme variables
+--------------------------- */
+:root {
+  --bg: #f9f9f9;
+  --text: lab(92.59% -41.08 3.83);
+  --card: #fff;
+  --accent: hwb(251 9% 7%);
+  --error: #b00020;
+  --success: #0d8a4a;
+}
+
+[data-theme="dark"] {
+  --bg: hsl(101, 88%, 49%);
+  --text: #f2f2f2;
+  --card: hsl(101, 88%, 46%);
+  --accent: #e63946;
+  --error: #ff6b6b;
+  --success: #4caf50;
+}
+
+/* ---------------------------
+   Base styles
+--------------------------- */
+* { box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: Arial, sans-serif;
+  margin: 0;
+  line-height: 1.6;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ---------------------------
+   Navigation
+--------------------------- */
+.nav {
+  background: var(--accent);
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+.nav a { color: #fff; margin: 0 0.5rem; }
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+}
+.brand { font-weight: bold; font-size: 1.2rem; }
+
+.theme-toggle {
+  background: var(--card);
+  color: var(--text);
+  border: 1px solid var(--text);
+  border-radius: 6px;
+  padding: 0.4rem 0.6rem;
+  cursor: pointer;
+}
+.theme-toggle:hover { opacity: 0.8; }
+
+/* ---------------------------
+   Hero section
+--------------------------- */
+.hero {
+  padding: 2rem;
+  text-align: center;
+}
+
+/* ---------------------------
+   Product grid
+--------------------------- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+  gap: 1rem;
+  padding: 1rem;
+}
+.product-card {
+  background: var(--card);
+  color: var(--text);
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+.product-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+.product-card button {
+  margin-top: 0.5rem;
+}
+
+/* ---------------------------
+   Buttons
+--------------------------- */
+button, .btn {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+button:hover, .btn:hover { opacity: 0.9; }
+
+/* ---------------------------
+   Cart page
+--------------------------- */
+.cart-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--card);
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  border-radius: 6px;
+}
+.qty-controls {
+  display: flex;
+  gap: 0.5rem;
+}
+.qty-btn {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.3rem 0.6rem;
+  cursor: pointer;
+}
+.qty-btn:hover { opacity: 0.8; }
+.qty-btn.remove { background: var(--error); }
+
+/* ---------------------------
+   Forms (signin & contact)
+--------------------------- */
+.container { max-width: 900px; margin: 0 auto; padding: 1rem; }
+.form-field { margin-bottom: 1rem; }
+label { display: block; margin-bottom: 0.25rem; }
+input, textarea {
+  width: 100%;
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: var(--card);
+  color: var(--text);
+}
+input:focus, textarea:focus { outline: 2px solid var(--accent); }
+.error { color: var(--error); margin-top: 0.25rem; min-height: 1em; }
+.success { color: var(--success); margin-top: 0.5rem; }
+
+/* ---------------------------
+   Utility
+--------------------------- */
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0;
+  margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0;
+}
+
+/* Full-page background image */
+body {
+  background-image: url("https://th.bing.com/th/id/OIP.m6NUEWRkdvIX9VBm5HhLQwHaER?w=241&h=180&c=7&r=0&o=7&pid=1.7&rm=3");
+  background-size: cover;       /* fills the entire screen */
+  background-position: center;  /* centers the image */
+  background-repeat: no-repeat; /* prevents tiling */
+  background-attachment: fixed; /* keeps image fixed when scrolling */
+  color: var(--text);           /* text color from theme variables */
+  font-family: Arial, sans-serif;
+  margin: 0;
+}
+
+/* Optional overlay for readability */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.4); /* dark overlay */
+  z-index: -1; /* keeps it behind content */
+}

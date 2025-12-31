@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SneakerStore — Sign In</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a class="brand" href="index.html">SneakerStore</a>
+      <button class="theme-toggle" id="themeToggle">🌙</button>
+      <ul class="nav-links">
+        <li><a href="products.html">Products</a></li>
+        <li><a href="cart.html">Cart <span id="cartCount">0</span></a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li id="authLink"><a href="signin.html">Sign In</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Sign In</h1>
+    <form id="signinForm">
+      <label>Email: <input type="email" id="email" required></label>
+      <label>Password: <input type="password" id="password" required></label>
+      <button type="submit">Sign In</button>
+    </form>
+    <p id="signinMessage"></p>
+  </main>
+</body>
+</html>

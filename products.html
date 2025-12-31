@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SneakerStore — Products</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a class="brand" href="index.html">SneakerStore</a>
+      <button class="theme-toggle" id="themeToggle">🌙</button>
+      <ul class="nav-links">
+        <li><a href="products.html">Products</a></li>
+        <li><a href="cart.html">Cart <span id="cartCount">0</span></a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li id="authLink"><a href="signin.html">Sign In</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Our Sneakers</h1>
+    <div class="grid">
+      <article class="product-card">
+        <img src="data:image/webp;base64,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" alt="Nike Air Max"/>
+        <h3>Nike Air Max</h3>
+        <p>KSh 8,500</p>
+        <button class="add-to-cart" data-id="airmax" data-name="Nike Air Max" data-price="8500">Add to Cart</button>
+      </article>
+
+      <article class="product-card">
+        <img src="https://th.bing.com/th/id/OIP.O4NeRHVh2Co9ABnh508iSQHaFR?w=239&h=150&c=6&o=7&pid=1.7&rm=3" alt="Air Jordan" />
+        <h3>Air Jordan</h3>
+        <p>KSh 12,000</p>
+        <button class="add-to-cart" data-id="jordan" data-name="Air Jordan" data-price="12000">Add to Cart</button>
+      </article>
+    </div>
+  </main>
+</body>
+</html>

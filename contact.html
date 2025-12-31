@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SneakerStore — Contact</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary">
+      <a class="brand" href="index.html">SneakerStore</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">🌙</button>
+      <ul class="nav-links">
+        <li><a href="products.html">Products</a></li>
+        <li><a href="cart.html">Cart <span id="cartCount">0</span></a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" aria-current="page">Contact</a></li>
+        <li id="authLink"><a href="signin.html">Sign In</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section aria-labelledby="contact-title">
+      <h1 id="contact-title">Contact us</h1>
+      <p>Questions about sizing, drops, or orders? Send us a message and we’ll get back to you.</p>
+    </section>
+
+    <section aria-labelledby="form-title">
+      <h2 id="form-title" class="sr-only">Contact form</h2>
+      <!-- No action attribute to avoid Cannot GET on static hosting -->
+      <form id="contactForm" novalidate>
+        <div class="form-field">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" required />
+          <small class="error" id="nameError" aria-live="polite"></small>
+        </div>
+
+        <div class="form-field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required />
+          <small class="error" id="emailError" aria-live="polite"></small>
+        </div>
+
+        <div class="form-field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="4" required></textarea>
+          <small class="error" id="messageError" aria-live="polite"></small>
+        </div>
+
+        <button class="btn" type="submit">Send message</button>
+        <p class="success" id="formSuccess" hidden>Thanks! We received your message.</p>
+      </form>
+    </section>
+  </main>
+
+  <!-- Inline fallback script to guarantee functionality -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const form = document.getElementById("contactForm");
+      if (!form) return;
+      const nameInput = document.getElementById("name");
+      const emailInput = document.getElementById("email");
+      const messageInput = document.getElementById("message");
+
+      const nameError = document.getElementById("nameError");
+      const emailError = document.getElementById("emailError");
+      const messageError = document.getElementById("messageError");
+      const successEl = document.getElementById("formSuccess");
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        let valid = true;
+
+        if (!nameInput.value.trim()) {
+          nameError.textContent = "Please enter your name.";
+          valid = false;
+        } else { nameError.textContent = ""; }
+
+        const emailVal = emailInput.value.trim();
+        if (!emailVal || !emailVal.includes("@")) {
+          emailError.textContent = "Please enter a valid email that contains '@'.";
+          valid = false;
+        } else { emailError.textContent = ""; }
+
+        if (!messageInput.value.trim()) {
+          messageError.textContent = "Please enter a message.";
+          valid = false;
+        } else { messageError.textContent = ""; }
+
+        if (valid) {
+          successEl.hidden = false;
+          form.reset();
+        }
+      });
+    });
+  </script>
+</body>
+</html>
